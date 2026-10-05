@@ -1,4 +1,4 @@
-IPTABLES -> HAPROXY   (C:\project\firewall)
+IPTABLES -> HAPROXY
 ===========================================
 
 Files
@@ -11,9 +11,8 @@ Files
 Generate / refresh the list
   1. save the new list over firewall.txt
   2. python iptables_to_haproxy.py firewall.txt
-  3. python test_iptables_to_haproxy.py
-  4. scp haproxy-allow.lst to the server:  /etc/haproxy/
-  5. sudo haproxy -c -f /etc/haproxy/haproxy.cfg && sudo systemctl reload haproxy
+  3. scp haproxy-allow.lst to the server:  /etc/haproxy/
+  4. sudo haproxy -c -f /etc/haproxy/haproxy.cfg && sudo systemctl reload haproxy
 
 HAProxy config (inside the frontend that serves the site, mode http)
   acl country_allow src -f /etc/haproxy/haproxy-allow.lst
